@@ -387,6 +387,7 @@ def fetch_contract_statuses(signum):
             #contributor_addresses = contract_interface.get_contributor_addresses()
             total_contributions = contract_interface.total_contribution()
             contributions       = contract_interface.get_individual_contributions()
+            operator            = contract_interface.get_operator()
 
             app.contracts[contract_address] = {
                 'finalized': is_finalized,
@@ -398,6 +399,7 @@ def fetch_contract_statuses(signum):
                 'contributions': [
                     {"address": addr, "amount": amt} for addr, amt in contributions.items()
                 ],
+                'operator': operator,
                 'total_contributions': total_contributions,
             }
 
